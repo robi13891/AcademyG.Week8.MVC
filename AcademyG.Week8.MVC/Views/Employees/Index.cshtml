@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EmployeeViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Birthday</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            @*<td>@item.Code</td>*@
+            @*HTML HELPER (c#-->esterno)*@
+            <td>@Html.ActionLink(item.Code, "Detail", "Employees", new { code = item.Code})</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.BirthDate.ToShortDateString()</td>
+        </tr>   
+
+        }
+    </tbody>
+</table>
